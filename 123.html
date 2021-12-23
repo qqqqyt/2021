@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/v2.6.10/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			    <h1>进制转换</h1>
+				<hr><br>
+				二进制：<input type="text" v-model="b"/><input type="button" value="转换" @click="bto()"/><br><br>
+				八进制：<input type="text" v-model="o"/><input type="button" value="转换" @click="oto()"/><br><br>
+				十进制：<input type="text" v-model="d"/><input type="button" value="转换" @click="dto()"/><br><br>
+				十六进制：<input type="text" v-model="h"/><input type="button" value="转换" @click="hto()"/><br><br>
+				<hr><br>
+				输入的{{num1}}进制数为：{{abc1}}<br><br>
+				输出的{{num2}}进制数为：{{abc2}}<br><br>
+				输出的{{num3}}进制数为：{{abc3}}<br><br>
+				输出的{{num4}}进制数为：{{abc4}}<br>
+				</div>
+				<script>
+					let v=new Vue({
+						el:"#app",
+						data:{
+							b:null,
+							o:null,
+							d:null,
+							h:null,
+							num1:"二",
+							abc1:null,
+							num2:"八",
+							abc2:null,
+							num3:"十",
+							abc3:null,
+							num4:"十六",
+							abc4:null,
+						},
+						methods:{
+							bto(){
+								var a=parseInt(v.b,2);
+								v.o=a.toString(8);
+								v.d=a;
+								v.h=a.toString(16);
+								v.num1="二";
+								v.abc1=v.b;
+								v.num2="八";
+								v.abc2=v.o;
+								v.num3="十";
+								v.abc3=v.d;
+								v.num4="十六";
+								v.abc4=v.h;
+							},
+							oto(){
+								var a=parseInt(v.o,8);
+								v.b=a.toString(2);
+								v.d=a;
+								v.h=a.toString(16);
+								v.num1="八";
+								v.abc1=v.o;
+								v.num2="二";
+								v.abc2=v.b;
+								v.num3="十";
+								v.abc3=v.d;
+								v.num4="十六";
+								v.abc4=v.h;
+							},
+							dto(){
+								var a=parseInt(v.d,10);
+								v.b=a.toString(2);
+								v.o=a.toString(8);
+								v.h=a.toString(16);
+								v.num1="十";
+								v.abc1=v.d;
+								v.num2="二";
+								v.abc2=v.b;
+								v.num3="八";
+								v.abc3=v.o;
+								v.num4="十六";
+								v.abc4=v.h;
+							},
+							hto(){
+								var a=parseInt(v.h,16);
+								v.o=a.toString(8);
+								v.d=a;
+								v.b=a.toString(2);
+								v.num1="十六";
+								v.abc1=v.h;
+								v.num2="二";
+								v.abc2=v.b;
+								v.num3="八";
+								v.abc3=v.o;
+								v.num4="十";
+								v.abc4=v.d;
+							}
+						}
+					})
+					
+				</script>
+	
+	</body>
+</html>
